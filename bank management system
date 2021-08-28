@@ -1,0 +1,100 @@
+//code for bank management system
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+using namespace std;
+class bank{
+char name[100], address[100],y;
+int balance;    
+public:
+    void open_account();
+    void deposit_money();
+    void withdraw_money();
+    void display_account();
+    };
+ void bank::open_account(){
+     cout<<"Enter your full name : ";
+     cin.ignore();
+     cin.getline(name,100);
+     cout<<"Enter your address : ";
+     cin.ignore();
+     cin.getline(address,100);
+     cout<<"What type of account you want to open savings (s) Or current (c) ";
+     cin>>y;
+     cout<<"How much do you want to desposit?";
+     cin>>balance;
+     cout<<"your account has been created \n";
+     }
+void bank::deposit_money(){
+    int a;
+    cout<<"How much do you want to deposit \n";
+    cin>>a;
+    balance=balance+a;
+    cout<<" Your Account balance is Rs."<<balance;
+    } 
+void bank::display_account(){
+    cout<<"Name: "<<name;
+    cout<<"Address: "<<address;
+    cout<<"Account type: "<<y;
+    cout<<"Account balance: "<<balance;
+    } 
+void bank::withdraw_money(){
+    float amount;
+    cout<<"\n withdraw....";
+    cout<<"Enter the amount: ";
+    cin>>amount;
+    balance=balance-amount;
+    cout<<"Account balance: "<<balance;
+    }    
+    
+int main(){
+    int ch,x;
+    bank obj;
+    do{
+    cout<<"> Open Account \n";
+    cout<<"> Deposit money \n";
+    cout<<"> withdraw money \n";
+    cout<<"> Display account details \n";
+    cout<<"> Exit \n";
+    cout<<"select the option from above \n";
+    cin>>ch;
+    switch(ch){
+        case 1: 
+        {  
+            obj.open_account();
+            break;
+        }
+        case 2:
+        {
+            obj.deposit_money();
+            break;
+        }
+        case 3:
+        {
+            obj.withdraw_money();
+            break;
+        }
+        case 4:
+        {
+            obj.display_account();
+            break;
+        
+        }
+        case 5:
+        {
+            if(ch==5) 
+                exit(1);
+        }
+        default:
+            cout<<" Invalid Input \n";
+        cout<<"\n If you want to select next option then press: y\n";
+    }
+cout<<" If you want to exit then press : N";
+x=getch();
+if(x=='n'||x=='N')
+   exit(0);  
+    
+    } while(x=='y'||x=='Y');   
+ getch();
+return 0;
+}
